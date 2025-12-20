@@ -17,7 +17,8 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
-import { getStoreById } from "../../api/store"; // API funksiyani yozing
+import { getStoreById } from "../../api/store";
+import { getErrorMessage } from "../../utils/errorHandler";
 
 const route = useRoute();
 const storeId = route.params.id;
@@ -25,14 +26,17 @@ const storeId = route.params.id;
 const store = ref(null);
 const loading = ref(true);
 const errorMsg = ref("");
+const successMsg = ref("");
 
 onMounted(async () => {
+  errorMsg.value = "";
+  successMsg.value = "";
   try {
     const res = await getStoreById(storeId);
-    store.value = res.data.store;
+    store.value = res.data;
+    successMsg.value = "Store ma'lumotlari muvaffaqiyatli yuklandi";
   } catch (error) {
-    errorMsg.value =
-      error.response?.data?.message || "Server bilan bog‘lanib bo‘lmadi";
+    errorMsg.value = getErrorMessage(error);
   } finally {
     loading.value = false;
   }
@@ -42,14 +46,14 @@ onMounted(async () => {
 <style scoped>
 .store-details {
   max-width: 800px;
-  margin: 80px auto 20px; /* header balandligi uchun 80px margin-top */
+  margin: 50px auto 20px; /* header balandligi uchun 80px margin-top */
   padding: 0 20px;
 }
 
-.error {
+/* .error {
   color: #e74c3c;
   margin-bottom: 15px;
-}
+} */
 
 .details-card {
   background-color: #fff;
