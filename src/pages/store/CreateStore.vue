@@ -9,6 +9,7 @@ const toast = useToast();
 const router = useRouter();
 const name = ref("");
 const address = ref("");
+const phone_number = ref("");
 const errorMsg = ref("");
 const successMsg = ref("");
 
@@ -21,6 +22,7 @@ const submit = async () => {
     const res = await postStore({
       name: name.value,
       address: address.value,
+      phone_number: phone_number.value,
     });
     toast.success("Do'kon muvaffaqiyatli qo'shildi");
     emit("store-created", res.data);
@@ -37,7 +39,7 @@ const submit = async () => {
       <form class="form">
         <input v-model="name" type="text" placeholder="Do'kon nomi" />
         <input v-model="address" type="text" placeholder="Manzil" />
-        <input type="text" placeholder="Telefon raqam" />
+        <input v-model="phone_number" type="text" placeholder="Telefon raqam" />
         <button @click.prevent="submit" type="submit">Qo'shish</button>
         <button @click.prevent="emit('close')">Bekor qilish</button>
       </form>
