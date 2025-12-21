@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <MainLayout />
-  </div>
+  <MainLayout />
 </template>
 <script>
 import MainLayout from "./layout/MainLayout.vue";

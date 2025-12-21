@@ -1,7 +1,7 @@
 <template>
   <header>
     <button class="toggle-btn" @click="$emit('toggleSidebar')">☰</button>
-    <div class="logo">Ice Cream Admin</div>
+    <div class="logo" aria-label="Ice Cream Admin logo">Ice Cream Admin</div>
   </header>
 </template>
 
@@ -15,8 +15,9 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 60px;
+  contain: layout paint;
   padding: 0 20px;
-  background-color: #4a90e2; /* yorqin ko‘k */
+  background-color: #4a90e2;
   color: #fff;
   position: fixed;
   top: 0;
@@ -38,6 +39,7 @@ header {
 .logo {
   font-weight: bold;
   font-size: 18px;
+  font-display: swap;
 }
 
 @media (max-width: 768px) {

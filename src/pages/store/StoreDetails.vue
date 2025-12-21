@@ -6,7 +6,14 @@
       <h3>{{ store.name }}</h3>
       <p><b>Manzil:</b> {{ store.address }}</p>
       <p><b>Telefon:</b> {{ store.phone_number || "Yo‘q" }}</p>
-      <!-- <p><b>Qo‘shimcha ma’lumot:</b> {{ store.description || "Yo‘q" }}</p> -->
+      <p>
+        <b>Yaratilgan vaqt:</b>
+        {{
+          store.createdAt
+            ? new Date(store.createdAt).toLocaleDateString("uz-UZ")
+            : "Yoq" || "Yo'q"
+        }}
+      </p>
     </div>
   </div>
 </template>

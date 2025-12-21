@@ -2,27 +2,29 @@
   <Header @toggleSidebar="isSidebarOpen = !isSidebarOpen" />
   <Sidebar :open="isSidebarOpen" />
   <main :class="{ shifted: isSidebarOpen }">
-    <router-view />
+    <Suspense>
+      <router-view />
+    </Suspense>
   </main>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, defineAsyncComponent } from "vue";
 import Header from "../components/Header.vue";
-import Sidebar from "../components/Sidebar.vue";
+const Sidebar = defineAsyncComponent(() => import("../components/Sidebar.vue"));
 
 const isSidebarOpen = ref(false);
 </script>
 
 <style scoped>
 main {
-  margin-left: 220px; /* desktop sidebar width */
+  margin-left: 220px;
   padding: 20px;
   transition: margin-left 0.3s;
 }
 
 main.shifted {
-  margin-left: 0; /* sidebar yopilganda */
+  margin-left: 0;
 }
 
 @media (max-width: 768px) {
