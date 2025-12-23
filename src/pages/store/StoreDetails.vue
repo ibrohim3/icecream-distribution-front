@@ -84,7 +84,6 @@ onMounted(async () => {
 }
 
 .details-card h3 {
-  /* margin-bottom: 15px; */
   color: #4a90e2;
 }
 
@@ -96,7 +95,6 @@ onMounted(async () => {
 @media (max-width: 600px) {
   .details-card {
     padding: 1px 10px 15px 15px;
-    /* padding: 10px; */
   }
 }
 </style>
