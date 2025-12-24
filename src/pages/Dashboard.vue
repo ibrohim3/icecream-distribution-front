@@ -20,6 +20,13 @@
         <template #icon>💵</template>
       </StatCard>
 
+        <StatCard
+        title="Olingan pul "
+        :value="daily.totalPaid.toLocaleString() + ' so‘m'"
+      >
+        <template #icon>💵</template>
+      </StatCard>
+      
       <StatCard
         title="Bugungi qarz"
         :value="daily.totalDebt.toLocaleString() + ' so‘m'"
