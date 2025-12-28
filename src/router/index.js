@@ -6,6 +6,7 @@ import Dashboard from "../pages/Dashboard.vue";
 import ProductsList from "../pages/products/ProductsList.vue";
 import Distribution from "../pages/distribution/Distribution.vue";
 import StockAdd from "../pages/stock/StockAdd.vue";
+import Reports from "../pages/reports/Reports.vue";
 
 const routes = [
     { path: "/", component: Dashboard },
@@ -15,6 +16,7 @@ const routes = [
     { path: "/stores", component: StoreList },
     { path: "/store/:id", component: StoreDetail },
     { path: "/stores/create", component: CreateStore },
+    { path: "/reports", component: Reports }
 ]
 
 const router = createRouter({

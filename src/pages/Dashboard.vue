@@ -15,21 +15,21 @@
 
       <StatCard
         title="Bugungi savdo"
-        :value="daily.totalSales.toLocaleString() + ' so‘m'"
+        :value="daily.totalSales.toLocaleString() + 'som'"
       >
         <template #icon>💵</template>
       </StatCard>
 
-        <StatCard
+      <StatCard
         title="Olingan pul "
-        :value="daily.totalPaid.toLocaleString() + ' so‘m'"
+        :value="daily.totalPaid.toLocaleString() + 'som'"
       >
         <template #icon>💵</template>
       </StatCard>
-      
+
       <StatCard
         title="Bugungi qarz"
-        :value="daily.totalDebt.toLocaleString() + ' so‘m'"
+        :value="daily.totalDebt.toLocaleString() + 'som'"
       >
         <template #icon>🧾</template>
       </StatCard>
@@ -107,7 +107,7 @@ const fetchData = async () => {
     renderChart();
   } catch (err) {
     console.error(err);
-    toast.error("Maʼlumotni yuklashda xatolik");
+    toast.error("Ma'lumotni yuklashda xatolik");
   } finally {
     loading.value = false;
   }
