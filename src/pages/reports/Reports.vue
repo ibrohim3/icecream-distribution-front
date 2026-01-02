@@ -20,9 +20,9 @@ const monthly = ref({
 const fetchData = async () => {
   loading.value = true;
   try {
-    const month = new Date("2025-12")
+    const month = new Date("2025-12");
     console.log(month);
-    
+
     const mRes = await getMonthlyReport(month);
 
     monthly.value = {
@@ -32,9 +32,7 @@ const fetchData = async () => {
       paidAmount: mRes.data.data.paidAmount || 0,
       debt: mRes.data.data.debt || 0,
     };
-    console.log(monthly.value);
   } catch (error) {
-    console.log(error);
     toast.error("Ma'lumotni yuklashda xatolik");
   } finally {
     loading.value = false;
